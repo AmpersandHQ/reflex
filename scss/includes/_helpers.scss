@@ -264,6 +264,7 @@
     max-width: 100%;
     height: auto;
     width: 100%;
+
     @if $legacy-support == true {
         *width: auto;
     }
@@ -279,8 +280,50 @@
     }
 }
 
-// --------------------------------------------------
-// Responsive visibility modifiers
-// --------------------------------------------------
+@if $visibility-helpers == true {
+    .#{$reflex-prefix}hidden {
+        display: none;
+    }
 
-@include responsive-visibility-helpers();
+    // .#{$reflex-prefix}visually-hidden {
+    //     position: absolute;
+    //     overflow: hidden;
+    //     clip: rect(0 0 0 0);
+    //     height: 1px; width: 1px;
+    //     margin: -1px; padding: 0; border: 0;
+    // }
+
+    @each $point, $val in $reflex-breakpoints {
+        .#{$reflex-prefix}hidden-#{$point} {
+            @media only screen and (min-width: $val) {
+                display: none;
+            }
+        }
+
+        // .#{$reflex-prefix}visually-hidden-#{$point} {
+        //     @media only screen and (min-width: $val) {
+        //         position: absolute;
+        //         overflow: hidden;
+        //         clip: rect(0 0 0 0);
+        //         height: 1px; width: 1px;
+        //         margin: -1px; padding: 0; border: 0;
+        //     }
+        // }
+
+        // .#{$reflex-prefix}hidden--to-#{$point} {
+        //     @media only screen and (max-width: $val) {
+        //         display: none;
+        //     }
+        // }
+
+        // .#{$reflex-prefix}visually-hidden-to-#{$point} {
+        //     @media only screen and (max-width: $val) {
+        //         position: absolute;
+        //         overflow: hidden;
+        //         clip: rect(0 0 0 0);
+        //         height: 1px; width: 1px;
+        //         margin: -1px; padding: 0; border: 0;
+        //     }
+        // }
+    }
+}

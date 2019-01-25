@@ -1,14 +1,14 @@
 {
-  "name": "reflex-grid",
+  "name": "@ampersandhq/reflex-grid",
   "version": "2.0.4",
-  "description": "responsive flexbox grid with inline-block legacy support",
+  "description": "Responsive flexbox grid with inline-block legacy support - Forked from leejordan/reflex",
   "main": "css/reflex.css",
   "directories": {
     "doc": "docs"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leejordan/reflex.git"
+    "url": "https://github.com/AmpersandHQ/reflex.git"
   },
   "keywords": [
     "reflex",
@@ -22,9 +22,9 @@
   "author": "@leejordan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leejordan/reflex/issues"
+    "url": "https://github.com/AmpersandHQ/reflex/issues"
   },
-  "homepage": "reflexgrid.com",
+  "homepage": "http://reflexgrid.com/docs/",
   "scripts": {
     "build": "npm run build:min && npm run build:max",
     "build:min": "node-sass-chokidar --precision 8 --output-style compressed scss/reflex.scss css/reflex.min.css",

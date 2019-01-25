@@ -18,24 +18,10 @@
 }
 
 .#{$reflex-prefix}container {
-    @media (min-width: $reflex-xs) {
-        max-width: $reflex-xs;
-    }
-
-    @media (min-width: $reflex-sm) {
-        max-width: $reflex-sm;
-    }
-
-    @media (min-width: $reflex-md) {
-        max-width: $reflex-md;
-    }
-
-    @media (min-width: $reflex-lg) {
-        max-width: $reflex-lg;
-    }
-
-    @media (min-width: $reflex-xlg) {
-        max-width: $reflex-xlg;
+    @each $point, $val in $reflex-breakpoints {
+        @media (min-width: $val) {
+            max-width: $val;
+        }
     }
 }
 
@@ -100,61 +86,27 @@
 
 @include make-reflex-grid(col-);
 
-@media (min-width: $reflex-xs) {
-    @include make-reflex-grid(col-xs-);
-}
-
-@media (min-width: $reflex-sm) {
-    @include make-reflex-grid(col-sm-);
-}
-
-@media (min-width: $reflex-md) {
-    @include make-reflex-grid(col-md-);
-}
-
-@media (min-width: $reflex-lg) {
-    @include make-reflex-grid(col-lg-);
-}
-
-@media (min-width: $reflex-xlg) {
-    @include make-reflex-grid(col-xlg-);
+@each $point, $val in $reflex-breakpoints {
+    // --------------------------------------------------
+    // reflex grid generation
+    // --------------------------------------------------
+    @media (min-width: $val) {
+        @include make-reflex-grid(col-#{$point}-);
+    }
 }
 
 // --------------------------------------------------
 // reflex col-auto
 // --------------------------------------------------
-
 .#{$reflex-prefix}col-auto {
     @include setup-auto-cols();
 }
 
-@media (min-width: $reflex-xs) {
-    .#{$reflex-prefix}col-xs-auto {
-        @include setup-auto-cols();
-    }
-}
-
-@media (min-width: $reflex-sm) {
-    .#{$reflex-prefix}col-sm-auto {
-        @include setup-auto-cols();
-    }
-}
-
-@media (min-width: $reflex-md) {
-    .#{$reflex-prefix}col-md-auto {
-        @include setup-auto-cols();
-    }
-}
-
-@media (min-width: $reflex-lg) {
-    .#{$reflex-prefix}col-lg-auto {
-        @include setup-auto-cols();
-    }
-}
-
-@media (min-width: $reflex-xlg) {
-    .#{$reflex-prefix}col-xlg-auto {
-        @include setup-auto-cols();
+@each $point, $val in $reflex-breakpoints {
+    @media (min-width: $val) {
+        .#{$reflex-prefix}col-#{$point}-auto {
+            @include setup-auto-cols();
+        }
     }
 }
 
@@ -164,24 +116,10 @@
 
 @include make-order-helpers();
 
-@media only screen and (min-width: $reflex-xs) {
-    @include loop-order-helpers($reflex-columns, '-xs');
-}
-
-@media only screen and (min-width: $reflex-sm) {
-    @include loop-order-helpers($reflex-columns, '-sm');
-}
-
-@media only screen and (min-width: $reflex-md) {
-    @include loop-order-helpers($reflex-columns, '-md');
-}
-
-@media only screen and (min-width: $reflex-lg) {
-    @include loop-order-helpers($reflex-columns, '-lg');
-}
-
-@media only screen and (min-width: $reflex-xlg) {
-    @include loop-order-helpers($reflex-columns, '-xlg');
+@each $point, $val in $reflex-breakpoints {
+    @media only screen and (min-width: $val) {
+        @include loop-order-helpers($reflex-columns, '-#{$point}');
+    }
 }
 
 // --------------------------------------------------
@@ -190,22 +128,8 @@
 
 @include make-offset-helpers();
 
-@media only screen and (min-width: $reflex-xs) {
-    @include loop-offset-helpers($reflex-columns - 1, '-xs');
-}
-
-@media only screen and (min-width: $reflex-sm) {
-    @include loop-offset-helpers($reflex-columns - 1, '-sm');
-}
-
-@media only screen and (min-width: $reflex-md) {
-    @include loop-offset-helpers($reflex-columns - 1, '-md');
-}
-
-@media only screen and (min-width: $reflex-lg) {
-    @include loop-offset-helpers($reflex-columns - 1, '-lg');
-}
-
-@media only screen and (min-width: $reflex-xlg) {
-    @include loop-offset-helpers($reflex-columns - 1, '-xlg');
+@each $point, $val in $reflex-breakpoints {
+    @media only screen and (min-width: $val) {
+        @include loop-offset-helpers($reflex-columns - 1, '-#{$point}');
+    }
 }

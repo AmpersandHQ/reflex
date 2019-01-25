@@ -2,15 +2,15 @@
   --reflex-columns: 12;
   --reflex-grid-spacing: 15px;
   --reflex-xs: 576px;
+  --reflex-xs-max: 575px;
   --reflex-sm: 768px;
+  --reflex-sm-max: 767px;
   --reflex-md: 992px;
+  --reflex-md-max: 991px;
   --reflex-lg: 1200px;
+  --reflex-lg-max: 1199px;
   --reflex-xlg: 1600px;
-  --reflex-xxs-max: 575px;
-  --reflex-xs-max: 767px;
-  --reflex-sm-max: 991px;
-  --reflex-md-max: 1199px;
-  --reflex-lg-max: 1599px;
+  --reflex-xlg-max: 1599px;
 }
 
 .container,
@@ -1510,37 +1510,35 @@
   margin-bottom: 0;
 }
 
-@media (max-width: 575px) {
-  .hidden-xxs {
-    display: none;
-  }
+.hidden {
+  display: none;
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media only screen and (min-width: 576px) {
   .hidden-xs {
     display: none;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) {
   .hidden-sm {
     display: none;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 992px) {
   .hidden-md {
     display: none;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1599px) {
+@media only screen and (min-width: 1200px) {
   .hidden-lg {
     display: none;
   }
 }
 
-@media (min-width: 1600px) {
+@media only screen and (min-width: 1600px) {
   .hidden-xlg {
     display: none;
   }

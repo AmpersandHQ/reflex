@@ -30,6 +30,7 @@ $reflex-columns: 12 !default; // number of columns
 // Breakpoints
 // -------------------------
 $reflex-breakpoints: (
+  xxs: 0,
   xs: 576px,
   sm: 768px,
   md: 992px,
@@ -45,9 +46,12 @@ $reflex-grid-spacing: 15px !default;
 :root {
   --reflex-columns: #{ $reflex-columns };
   --reflex-grid-spacing: #{ $reflex-grid-spacing };
+  // --reflex-grid-xxs-max: #{ map-get($reflex-breakpoints, xs) - 1};
 
   @each $point, $val in $reflex-breakpoints {
+    $prev: map-get-prev($reflex-breakpoints, $point, $val - 1);
+
     --reflex-#{$point}: #{$val};
-    --reflex-#{$point}-max: #{$val - 1};
+    --reflex-#{$prev}-max: #{$val - 1};
   }
 }

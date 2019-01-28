@@ -41,17 +41,3 @@ $reflex-breakpoints: (
 // Spacing
 // -------------------------
 $reflex-grid-spacing: 15px !default;
-
-// Custom properties so others can reference the variables.
-:root {
-  --reflex-columns: #{ $reflex-columns };
-  --reflex-grid-spacing: #{ $reflex-grid-spacing };
-  // --reflex-grid-xxs-max: #{ map-get($reflex-breakpoints, xs) - 1};
-
-  @each $point, $val in $reflex-breakpoints {
-    $prev: map-get-prev($reflex-breakpoints, $point, $val - 1);
-
-    --reflex-#{$point}: #{$val};
-    --reflex-#{$prev}-max: #{$val - 1};
-  }
-}

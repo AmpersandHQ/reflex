@@ -1,6 +1,6 @@
 {
   "name": "@ampersandhq/reflex-grid",
-  "version": "2.1.0-0",
+  "version": "2.1.0",
   "description": "Responsive flexbox grid with inline-block legacy support - Forked from leejordan/reflex",
   "main": "css/reflex.css",
   "directories": {

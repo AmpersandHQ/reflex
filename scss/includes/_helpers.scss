@@ -264,6 +264,7 @@
     max-width: 100%;
     height: auto;
     width: 100%;
+
     @if $legacy-support == true {
         *width: auto;
     }
@@ -279,8 +280,16 @@
     }
 }
 
-// --------------------------------------------------
-// Responsive visibility modifiers
-// --------------------------------------------------
+@if $visibility-helpers == true {
+    .#{$reflex-prefix}hidden {
+        display: none;
+    }
 
-@include responsive-visibility-helpers();
+    @each $point, $val in $reflex-breakpoints {
+        .#{$reflex-prefix}hidden-#{$point} {
+            @media only screen and (min-width: $val) {
+                display: none;
+            }
+        }
+    }
+}

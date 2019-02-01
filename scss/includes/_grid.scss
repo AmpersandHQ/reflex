@@ -70,7 +70,17 @@
     // handle grids nested in columns
     .#{$reflex-prefix}grid {
         @include flex(1, 1, auto);
-        margin: -$reflex-grid-spacing;
+
+        // if the parent grid has .grid-bleed, it doesn't
+        // need the margin reduction as .grid-bleed has already
+        // removed it
+        .grid:not(.grid-bleed) & {
+            margin: -$reflex-grid-spacing;
+        }
+
+        .grid-bleed & {
+            margin: 0;
+        }
     }
 
     @if $legacy-support == true {

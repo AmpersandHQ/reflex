@@ -17,6 +17,13 @@ $reflex-prefix: null !default;
 // If you prefer to use this as a purely flexbox grid without legacy support then set this to false
 $legacy-support: true !default;
 
+// Box-sizing
+// -------------------------
+// Allows users to define the box-sizing that's most useful for their project - a lot of people
+// seem to be border-box on their projects, with child elements and pseudoelements
+// inheriting what they will: https://css-tricks.com/box-sizing/#article-header-id-6
+$box-sizing: border-box !default;
+
 // Responsive visibility helpers
 // -------------------------
 // Reflex has some generic visibility classes to hide elements at different breakpoints.

@@ -4,7 +4,7 @@
 
 .#{$reflex-prefix}container,
 .#{$reflex-prefix}container-full {
-    @include box-sizing(border-box);
+    @include box-sizing($box-sizing);
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -30,7 +30,7 @@
 // --------------------------------------------------
 
 .#{$reflex-prefix}grid {
-    @include box-sizing(border-box);
+    @include box-sizing($box-sizing);
     display: block;
     @include display-flex();
     @include flex-wrap();
@@ -41,7 +41,7 @@
 
     &::before,
     &::after {
-        @include box-sizing(border-box);
+        @include box-sizing($box-sizing);
         @include reset-whitespace();
     }
 
@@ -54,7 +54,7 @@
 // --------------------------------------------------
 
 [class*="#{$reflex-prefix}col-"] {
-    @include box-sizing(border-box);
+    @include box-sizing($box-sizing);
     @include reset-whitespace();
     position: relative;
     width: 100%;
@@ -63,7 +63,7 @@
 
     &::before,
     &::after {
-        @include box-sizing(border-box);
+        @include box-sizing($box-sizing);
         @include reset-whitespace();
     }
 

@@ -19,7 +19,9 @@
 
 .#{$reflex-prefix}container {
     @each $point, $val in $reflex-breakpoints {
-        @media (min-width: $val) {
+        $key: index(($reflex-breakpoints), ($point $val));
+
+        @if $key == length($reflex-breakpoints) {
             max-width: $val;
         }
     }
